@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frag_login"
+    >
+
+    <fragment
+        android:id="@+id/frag_home"
+        android:name="com.noscale.salt.HomeFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/fragment_home"
+        >
+        <argument
+            android:name="email"
+            app:argType="string"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_login"
+        android:name="com.noscale.salt.LoginFragment"
+        android:label="Login Fragment"
+        tools:layout="@layout/fragment_login"
+        >
+
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/frag_home"
+            />
+
+    </fragment>
+
+</navigation>

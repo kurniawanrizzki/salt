@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="vm"
+            type="com.noscale.salt.viewmodels.LoginViewModel"
+            />
+    </data>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="60dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_login_header"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView style="@style/TextAppearance.MaterialComponents.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:textColor="@color/grey"
+                android:text="@string/text_login_subheader"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="@string/text_email"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:background="@android:color/transparent"
+                android:inputType="textEmailAddress"
+                android:text="@={vm.email}"
+                android:hint="@string/text_email_hint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:onTextChanged="@{(text, start, before, count) -> vm.onEmailTextChanged(text)}"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/grey"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/text_password"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:background="@android:color/transparent"
+                android:inputType="textPassword"
+                android:text="@={vm.password}"
+                android:hint="@string/text_password_hint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:onTextChanged="@{(text, start, before, count) -> vm.onPasswordTextChanged(text)}"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/grey"
+                />
+
+            <Button style="@style/Widget.Material3.Button"
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_login"
+                android:enabled="false"
+                android:onClick="@{(v) -> vm.onLogin()}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+</layout>
